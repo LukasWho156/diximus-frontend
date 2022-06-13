@@ -39,6 +39,7 @@ class MainGamePage extends React.Component {
                 activePlayer: '',
             },
             viewedCard: null,
+            viewedCardList: [],
             hint: '',
             totalTurns: 0,
         };
@@ -146,13 +147,13 @@ class MainGamePage extends React.Component {
 
     viewHandCard = (index) => {
         this.setState((state) => {
-            return { viewedCard: state.handCards[index]?.id };
+            return { viewedCard: state.handCards[index]?.id, viewedCardList: state.handCards };
         })
     }
 
     viewChosenCard = (index) => {
         this.setState((state) => {
-            return { viewedCard: state.chosenCards[index]?.id };
+            return { viewedCard: state.chosenCards[index]?.id, viewedCardList: state.chosenCards };
         })
     }
 
@@ -272,6 +273,7 @@ class MainGamePage extends React.Component {
         }
         let viewer = '';
         if(this.state.viewedCard) viewer = (<CardViewer
+            cards={this.state.viewedCardList}
             cardId={this.state.viewedCard}
             onClose={() => this.closeViewer()}
             onConfirm={onConfirm}
