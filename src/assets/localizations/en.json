@@ -10,15 +10,21 @@
     "lobby-page_start-game": "Start game",
     "main-game-page_beginning": "Beginning of game",
     "main-game-page_i-want-to-start": "I want to go first!",
+    "main-game-page_beginning-of-turn": "Round {0} of {1}",
     "main-game-page_choose-hint-card": "Describe one of your cards.",
     "main-game-page_hint-field": "Description",
     "main-game-page_hint": "Hint: {0}",
     "main-game-page_give-card": "Choose a card that fits the hint.",
-    "main-game-page_choose-card": "Try to find the initial card.",
+    "main-game-page_choose-card": "Try to find the original card.",
     "main-game-page_waiting": "Wait for other players.",
+    "main-game-page_end-of-turn": "End of the round",
+    "main-game-page_scoring": "You gained {0} point this round.",
+    "main-game-page_next-turn": "Next round",
+    "finished-page_game-over": "The game is over",
     "button_confirm": "Confirm",
     "button_cancel": "Cancel",
     "avatar-customization_randomize": "Randomize",
     "avatar-customization_name": "Your name",
-    "card-viewer_choose-this-card": "Choose this card?"
+    "card-viewer_choose-this-card": "Choose this card?",
+    "player-bar_players": "Players"
 }

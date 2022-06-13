@@ -329,7 +329,7 @@ class MainGamePage extends React.Component {
                         </div>}
                     </Motion>
                 </div>
-                <PlayerBar players={this.state.players}/>
+                <PlayerBar localization={this.props.localization} players={this.state.players}/>
                 {viewer}
             </div>
         )

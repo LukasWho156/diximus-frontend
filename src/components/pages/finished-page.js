@@ -25,7 +25,7 @@ class FinishedPage extends React.Component {
     render() {
         return(<div className="contentColumn">
             <h1>Diximus</h1>
-            <h2>Das Spiel ist vorbei.</h2>
+            <h2>{this.props.localization.localize('finished-page_game-over')}</h2>
             <div className="contentColumn listColumn">
                 {this.state.players?.map(player => (
                     <PlayerBox key={player.id} player={player} showScore={player.totalScore} />

@@ -18,7 +18,7 @@ class PlayerBar extends React.Component {
     render() {
         return(<div className="topRightButton">
             <Offcanvas show={this.state.show} placement="end" className="playerBar" onHide={() => this.setState({show: false})}>
-                <OffcanvasHeader closeButton><h1>Spieler</h1></OffcanvasHeader>
+                <OffcanvasHeader closeButton><h1>{this.props.localization.localize('player-bar_players')}</h1></OffcanvasHeader>
                 <div className="contentColumn listColumn">
                     {this.props.players?.map(player => (
                         <PlayerBox key={player.id} player={player} showScore={player.totalScore} />
@@ -26,7 +26,7 @@ class PlayerBar extends React.Component {
                 </div>
             </Offcanvas>
             <Button variant="success" className="topRightButton dropShadow" onClick={() => this.setState({show: true})}>
-                Spieler
+                {this.props.localization.localize('player-bar_players')}
             </Button>
         </div>)
     }

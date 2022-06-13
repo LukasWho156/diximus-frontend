@@ -20,9 +20,11 @@
     "main-game-page_end-of-turn": "Rundenende",
     "main-game-page_scoring": "Du hast diese Runde {0} Punkte erzielt.",
     "main-game-page_next-turn": "Nächste Runde",
+    "finished-page_game-over": "Das Spiel ist beendet",
     "button_confirm": "Auswählen",
     "button_cancel": "Abbrechen",
     "avatar-customization_randomize": "Zufallswahl",
     "avatar-customization_name": "Dein Name",
-    "card-viewer_choose-this-card": "Diese Karte auswählen?"
+    "card-viewer_choose-this-card": "Diese Karte auswählen?",
+    "player-bar_players": "Spieler"
 }
