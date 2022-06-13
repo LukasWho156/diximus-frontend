@@ -1,0 +1,42 @@
+.playingCardContainer {
+    position: absolute;
+    background-color: transparent;
+    width: 820px;
+    height: 1220px;
+    cursor: pointer;
+    perspective: 1000px;
+    user-select: none;
+}
+
+.playingCardInner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.playingCardFront, .playingCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 40px;
+    background-clip: padding-box;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+}
+
+.playingCardFront {
+    background-color: white;
+}
+
+.playingCardImage {
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+}
+
+.playingCardBack {
+    background-color: black;
+    transform: rotateY(180deg);
+}

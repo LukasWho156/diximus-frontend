@@ -1,0 +1,4 @@
+.arrowColumn {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { io } from "socket.io-client";
+
+import CreateRoomPage from './components/pages/create-room-page';
+import GamePage from './components/pages/game-page';
+import Localization from './logic/localization';
+import serverUrl from './logic/server-url';
+
+const localization = new Localization();
+
+const socket = io(serverUrl.replace('http', 'ws'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div style={{width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Routes>
+          <Route path="/" element={<CreateRoomPage localization={localization} socket={socket} />} />
+          <Route path="/:id" element={<GamePage localization={localization} socket={socket} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,11 @@
+.tabletopContainer {
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+}
+
+.tabletop {
+    position: absolute;
+    background-image: url('../images/table.png');
+}

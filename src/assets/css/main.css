@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+body {
+    background-image: url('../images/background2.png');
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Fredericka the Great', sans-serif;
+    font-size: 3.5em;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+}
