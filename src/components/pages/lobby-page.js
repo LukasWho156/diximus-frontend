@@ -61,7 +61,7 @@ class LobbyPage extends React.Component {
 
     isButtonEnabled = (state) => {
         if(!state.players.find(e => e.id === this.credentials.playerId)?.admin) return false;
-        if(state.players.length < 2) return false;
+        if(state.players.length < 3) return false;
         if(state.currentNoCards < state.requiredNoCards) return false;
         if(state.requestSent) return false;
         return true;
