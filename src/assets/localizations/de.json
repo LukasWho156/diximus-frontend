@@ -8,6 +8,9 @@
     "join-room-page_join-game": "Spiel beitreten",
     "lobby-page_heading": "Lobby",
     "lobby-page_start-game": "Spiel starten",
+    "lobby-page_copy-link-label": "Kopiere den folgenden Link, um Freunde einzuladen:",
+    "lobby-page_copy-link": "Link kopieren",
+    "lobby-page_wait-for-admin": "Warte auf Administrator.",
     "main-game-page_beginning": "Spielbeginn",
     "main-game-page_i-want-to-start": "Ich möchte anfangen!",
     "main-game-page_beginning-of-turn": "Runde {0} von {1}",
@@ -25,6 +28,10 @@
     "button_cancel": "Abbrechen",
     "avatar-customization_randomize": "Zufallswahl",
     "avatar-customization_name": "Dein Name",
+    "game-settings_header": "Einstellungen",
+    "game-settings_no-turns": "Anzahl Runden:",
+    "game-settings_missing-cards": "Dir fehlen noch {0} Karten, um das Spiel zu starten.",
+    "game-settings_enough-cards": "Du hast genug Karten, um das Spiel zu starten",
     "card-viewer_choose-this-card": "Diese Karte auswählen?",
     "player-bar_players": "Spieler"
 }

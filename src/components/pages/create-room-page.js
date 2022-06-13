@@ -3,7 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 
 import AvatarCustomization from "../shared/avatar-customization";
-import serverUrl from '../../logic/server-url';
+import { serverUrl } from '../../logic/server-url';
 
 import '../../assets/css/layouts.css';
 
@@ -15,6 +15,7 @@ class CreateRoomPage extends React.Component {
     componentDidMount() {
         this.maxPlayers = 4;
         this.props.socket.on('joinresponse', (data) => {
+            console.log('Joinresponse', data);
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);

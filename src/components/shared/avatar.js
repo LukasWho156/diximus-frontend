@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../../assets/css/avatar.css'
-import serverUrl from '../../logic/server-url';
+import { serverUrl } from '../../logic/server-url';
 
 class Avatar extends React.Component {
 

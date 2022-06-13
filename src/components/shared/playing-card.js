@@ -1,7 +1,7 @@
 import React from "react";
 import {Motion, spring} from "react-motion";
 
-import serverUrl from "../../logic/server-url";
+import { serverUrl } from "../../logic/server-url";
 
 import "../../assets/css/playing-card.css";
 

@@ -5,11 +5,11 @@ import { io } from "socket.io-client";
 import CreateRoomPage from './components/pages/create-room-page';
 import GamePage from './components/pages/game-page';
 import Localization from './logic/localization';
-import serverUrl from './logic/server-url';
+import { serverUrl } from './logic/server-url';
 
 const localization = new Localization();
 
-const socket = io(serverUrl.replace('http', 'ws'));
+const socket = io(serverUrl.replace('http', 'ws').replace('/api', ''));
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import JoinRoomPage from "./join-room-page";
-import serverUrl from "../../logic/server-url";
+import { serverUrl } from "../../logic/server-url";
 import LobbyPage from "./lobby-page";
 import MainGamePage from "./main-game-page";
 import { Spinner } from "react-bootstrap";
