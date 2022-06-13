@@ -61,7 +61,7 @@ class LobbyPage extends React.Component {
 
     isButtonEnabled = (state) => {
         if(!state.players.find(e => e.id === this.credentials.playerId)?.admin) return false;
-        if(state.players.length < 3) return false;
+        if(state.players.length < 2) return false;
         if(state.currentNoCards < state.requiredNoCards) return false;
         if(state.requestSent) return false;
         return true;
@@ -70,7 +70,7 @@ class LobbyPage extends React.Component {
     copyLink = () => {
         navigator.clipboard.writeText(this.state.link);
         this.alert({
-            message: 'Link kopiert',
+            message: this.props.localization.localize('lobby-page_link-copied'),
             type: 'info',
         })
     }
@@ -113,8 +113,8 @@ class LobbyPage extends React.Component {
         })
         setTimeout(() => {
             this.alert({
-                message: "Server-Fehler: Timeout",
-                type: "danger",
+                message: this.props.localization.localize('server-error_timeout'),
+                type: 'danger',
             });
             this.setState({requestSent: false}, () => this.setState(state => ({buttonEnabled: this.isButtonEnabled(state)})))
         }, 3000);

@@ -53,11 +53,15 @@ class GamePageComponent extends React.Component {
             this.setState({ gameState: 'running' });
         });
         this.props.socket.on('gamefinished', (data) => {
-            this.setState({ gameState: 'finished' })
+            this.setState({ gameState: 'finished' });
+        });
+        this.props.socket.on('gamerestarted', (data) => {
+            console.log('Restarted!');
+            this.setState({ gameState: 'lobby' });
         });
         this.props.socket.on('disconnect', (data) => {
-            this.setState({ gameState: 'serverError' })
-        })
+            this.setState({ gameState: 'serverError' });
+        });
         setTimeout(() => this.stopLoading(), 3000);
     }
 
