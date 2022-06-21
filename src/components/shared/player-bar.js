@@ -21,7 +21,7 @@ class PlayerBar extends React.Component {
                 <OffcanvasHeader closeButton><h1>{this.props.localization.localize('player-bar_players')}</h1></OffcanvasHeader>
                 <div className="contentColumn listColumn">
                     {this.props.players?.map(player => (
-                        <PlayerBox key={player.id} player={player} showScore={player.totalScore} />
+                        <PlayerBox key={player.id} player={player} showScore={player.score.total} />
                     ))}
                 </div>
             </Offcanvas>

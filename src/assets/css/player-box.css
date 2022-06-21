@@ -6,10 +6,27 @@
     justify-content: space-between;
     padding: 0.4em;
     width: 256px;
+    cursor: pointer;
 }
 
 .playerName {
     position: relative;
     text-align: center;
     width: 100%;
+}
+
+.enlarged {
+    position: absolute;
+    transform: translate(-105%, 0);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0s;
+    transition-delay: 0s;
+}
+
+.playerBox:hover > .enlarged {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s;
+    transition-delay: 0.5s;
 }

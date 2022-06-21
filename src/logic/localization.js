@@ -15,6 +15,14 @@ class Localization {
     get defaultLanguage() {
         return window.navigator.language.split('-')[0];
     }
+
+    get currentLanguage() {
+        return this.language;
+    }
+
+    get availableLanguages() {
+        return availableLanguages.map(e => ({ name: languages[e].name, code: e}));
+    }
     
     constructor(language) {
         this.setLanguage(language ?? this.defaultLanguage)

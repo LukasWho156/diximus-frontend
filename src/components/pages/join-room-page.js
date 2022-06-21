@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import AvatarCustomization from "../shared/avatar-customization";
 
 import '../../assets/css/layouts.css';
+import NavBarPage from '../shared/nav-bar-page';
 
 class JoinRoomPage extends React.Component {
 
@@ -21,7 +22,7 @@ class JoinRoomPage extends React.Component {
 
     render() {
         return (
-            <div className="contentColumn">
+            <NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
                 <h1>Diximus</h1>
                 <h2>{this.props.localization.localize('join-room-page_join-game')}</h2>
                 <AvatarCustomization
@@ -32,7 +33,7 @@ class JoinRoomPage extends React.Component {
                 <Button onClick={(event) => this.onJoinGame(event)} variant="primary">
                     {this.props.localization.localize('join-room-page_join-game')}
                 </Button>
-            </div>
+            </NavBarPage>
         );
     }
 

@@ -92,21 +92,28 @@ class GamePageComponent extends React.Component {
                     localization={this.props.localization}
                     socket={this.props.socket}
                     params={this.props.params}
+                    forceRerender={this.props.forceRerender}
                     onSuccessfulJoin={() => this.setState({gameState: 'lobby'})}/>;
             case 'lobby':
-                return <LobbyPage localization={this.props.localization} socket={this.props.socket} params={this.props.params} />;
+                return <LobbyPage
+                    localization={this.props.localization}
+                    socket={this.props.socket}
+                    params={this.props.params}
+                    forceRerender={this.props.forceRerender}/>;
             case 'locked':
                 return <h2>{this.props.localization.localize('game-page_game-in-progress')}</h2>
             case 'running':
                 return <MainGamePage
                     localization={this.props.localization}
                     socket={this.props.socket}
-                    params={this.props.params}/>;
+                    params={this.props.params}
+                    forceRerender={this.props.forceRerender}/>;
             case 'finished':
                 return <FinishedPage
                     localization={this.props.localization}
                     socket={this.props.socket}
-                    params={this.props.params}/>;
+                    params={this.props.params}
+                    forceRerender={this.props.forceRerender}/>;
             case 'serverError':
                 return (<div style={{textAlign: "center"}}>
                     <h1>{this.props.localization.localize('game-page_server-problems')}</h1>

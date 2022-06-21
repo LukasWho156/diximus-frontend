@@ -1,0 +1,13 @@
+.normalCell {
+    background-color: rgba(255, 255, 255, 0.4);
+    background-clip: content-box;
+}
+
+.crossCell {
+    background-color: rgba(63, 63, 63, 0.4);
+    background-clip: content-box;
+}
+
+.rowHeading {
+    writing-mode: vertical-lr;
+}

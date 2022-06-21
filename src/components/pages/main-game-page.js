@@ -262,7 +262,7 @@ class MainGamePage extends React.Component {
             case 'evaluation':
                 content = (<div>
                     <h1>{this.props.localization.localize('main-game-page_end-of-turn')}</h1>
-                    <h2>{this.props.localization.localize('main-game-page_scoring', me.turnScore)}</h2>
+                    <h2>{this.props.localization.localize('main-game-page_scoring', me.score.thisTurn)}</h2>
                     <Button variant="primary" className="dropShadow" onClick={() => this.nextTurn()}>
                         {this.props.localization.localize('main-game-page_next-turn')}
                     </Button>
@@ -286,14 +286,14 @@ class MainGamePage extends React.Component {
             if(card.correct) {
                 const owner = this.state.players.find(e => e.id === card.owner);
                 if(owner) {
-                    column.push(<PlayerBox player={owner} showScore={`+${owner.turnScore}`} info={'crown'} key={card.owner}/>)
+                    column.push(<PlayerBox player={owner} showScore={`+${owner.score.thisTurn}`} info={'crown'} key={card.owner}/>)
                 }
             }
             if(card.guessedBy) {
                 for(let playerId of card.guessedBy) {
                     const player = this.state.players.find(e => e.id === playerId);
                     if(player) {
-                        column.push(<PlayerBox player={player} showScore={`+${player.turnScore}`} key={playerId}/>);
+                        column.push(<PlayerBox player={player} showScore={`+${player.score.thisTurn}`} key={playerId}/>);
                     }
                 }
             }

@@ -24,6 +24,14 @@ class PlayerBox extends React.Component {
                     hair={this.props.player.avatar.hair}
                     accessory={this.props.player.avatar.accessory}
                     color={this.props.player.avatar.color} />
+                    <div className="enlarged">
+                        <Avatar
+                            size='large'
+                            eyes={this.props.player.avatar.eyes}
+                            hair={this.props.player.avatar.hair}
+                            accessory={this.props.player.avatar.accessory}
+                            color={this.props.player.avatar.color} />
+                    </div>
                 <div className="playerName">
                     {this.props.player.name} {(this.props.showScore !== undefined) ? `(${this.props.showScore})` : ''}
                 </div>

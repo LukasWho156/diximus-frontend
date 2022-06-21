@@ -1,13 +1,15 @@
 import React from 'react';
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 import AvatarCustomization from "../shared/avatar-customization";
-import { serverUrl } from '../../logic/server-url';
+import NavBarPage from '../shared/nav-bar-page';
 
+import { serverUrl } from '../../logic/server-url';
 import '../../assets/css/layouts.css';
 
-class CreateRoomPage extends React.Component {
+class CreateRoomPageComponent extends React.Component {
 
     playerData;
     maxPlayers;
@@ -19,13 +21,14 @@ class CreateRoomPage extends React.Component {
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);
-            window.location.assign(`./${data.gameId}`);
+            this.props.navigate(data.gameId);
         })
     }
 
     render() {
+        console.log(this.props.forceRerender);
         return (
-            <div className="contentColumn" style={{maxHeight: "100vh"}}>
+            <NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
                 <h1>Diximus</h1>
                 <h2>{this.props.localization.localize('create-room-page_create-new-game')}</h2>
                 <AvatarCustomization
@@ -36,7 +39,7 @@ class CreateRoomPage extends React.Component {
                 <Button onClick={event => this.onCreateGame()} variant="primary" type="submit">
                     {this.props.localization.localize('create-room-page_create-new-game')}
                 </Button>
-            </div>
+            </NavBarPage>
         );
     }
 
@@ -60,6 +63,12 @@ class CreateRoomPage extends React.Component {
         })
     }
     
+}
+
+const CreateRoomPage = (props) => {
+    return( 
+        <CreateRoomPageComponent {...props} navigate={useNavigate()} />
+    );
 }
 
 export default CreateRoomPage;

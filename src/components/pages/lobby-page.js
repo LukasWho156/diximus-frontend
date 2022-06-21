@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { Button, Form, FormControl, FormLabel, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
+import copy from "copy-to-clipboard";
 
 import PlayerBox from "../shared/player-box";
 import { serverUrl, frontendUrl } from "../../logic/server-url";
 
 import "../../assets/css/layouts.css";
 import GameSettings from "../shared/game-settings";
+import NavBarPage from "../shared/nav-bar-page";
 
 class LobbyPage extends React.Component {
 
@@ -68,11 +70,18 @@ class LobbyPage extends React.Component {
     }
 
     copyLink = () => {
-        navigator.clipboard.writeText(this.state.link);
-        this.alert({
-            message: this.props.localization.localize('lobby-page_link-copied'),
-            type: 'info',
-        })
+        try {
+            navigator.clipboard.writeText(this.state.link);
+            this.alert({
+                message: this.props.localization.localize('lobby-page_link-copied'),
+                type: 'info',
+            });
+        } catch(err) {
+            this.alert({
+                message: 'Kopieren fehlgeschlagen. Bitte kopiere den Link manuell.',
+                type: 'danger',
+            })
+        }
     }
 
     onNoRoundsChanged = (e) => {
@@ -131,7 +140,7 @@ class LobbyPage extends React.Component {
             missingCards={this.state.requiredNoCards - this.state.currentNoCards} />
             : <h2>{this.props.localization.localize('lobby-page_wait-for-admin')}</h2>;
         return(
-            <div style={{position: "absolute", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            <NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
                 <Container style={{width: "70%", overflowY: "auto", overflowX: "hidden"}}>
                     <Row>
                         <Col>
@@ -145,7 +154,7 @@ class LobbyPage extends React.Component {
                                 <div style={{display: "flex"}}>
                                     <FormControl type="text" value={this.state.link} readOnly></FormControl>
                                     <Button variant="secondary" style={{width: "max-content", whiteSpace: "nowrap"}}
-                                        onClick={() => this.copyLink()}>
+                                        onClick={() => this.copyLink()} onPointerDown={() => this.copyLink()}>
                                         {this.props.localization.localize('lobby-page_copy-link')}
                                     </Button>
                                 </div>
@@ -186,7 +195,7 @@ class LobbyPage extends React.Component {
                         {this.state.alert?.message}
                     </Alert>
                 </div>
-            </div>
+            </NavBarPage>
         );
     }
 

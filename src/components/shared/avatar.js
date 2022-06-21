@@ -11,6 +11,7 @@ class Avatar extends React.Component {
     render() {
         let className = 'avatarLarge';
         if(this.props.size === 'small') className = 'avatarSmall';
+        if(this.props.size === 'medium') className = 'avatarMedium';
         const address = `${serverUrl}/avatar/${this.props.eyes}/${this.props.hair}/${this.props.accessory}/${this.props.color}`;
         return (
             <img src={address} alt="Avatar" className={className} />
