@@ -33,12 +33,10 @@ class OrderTestPage extends React.Component {
     }
 
     increment() {
-        console.log('Hi');
         this.setState({currentStart: (this.state.currentStart + 1) % 4})
     }
 
     render() {
-        console.log(this.state.currentStart);
         const elements = players.map((element, i) =>
             <Motion style={{
                 y: spring(((i - this.state.currentStart + 4) % 4)),

@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Button, Form, FormControl, FormLabel, Container, Row, Col, Spinner, Alert } from "react-bootstrap";
-import copy from "copy-to-clipboard";
+import { Button, Form, FormControl, FormLabel, Container, Row, Col, Alert } from "react-bootstrap";
 
 import PlayerBox from "../shared/player-box";
 import { serverUrl, frontendUrl } from "../../logic/server-url";
@@ -45,7 +44,6 @@ class LobbyPage extends React.Component {
             this.setState({availableSets: res.data});
         });
         this.props.socket.on('playerjoined', (data) => {
-            console.log('Player joined', data);
             this.setState(state => ({
                 players: data.players,
                 requiredNoCards: data.players.length * (5 + state.noRounds),
@@ -95,7 +93,6 @@ class LobbyPage extends React.Component {
         this.setState(state => {
             const set = state.availableSets.find(e => e._id === setId);
             if(!set) return;
-            console.log(e.target.checked);
             set.selected = e.target.checked;
             let selectedCards = 0;
             for(let set of state.availableSets) {

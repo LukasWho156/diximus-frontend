@@ -20,10 +20,16 @@ class CardViewer extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.cardId);
-        console.log(this.props.cards);
-        this.state = {index: this.props.cards.findIndex(e => e.id === this.props.cardId)}
-        console.log(this.state);
+        this.state = {
+            index: this.props.cards.findIndex(e => e.id === this.props.cardId),
+            width: window.innerWidth,
+            height: window.innerHeight,
+        }
+    }
+
+    componentDidMount() {
+        this.onResize();
+        window.addEventListener('resize', () => this.onResize());
     }
 
     onClose() {
@@ -53,9 +59,35 @@ class CardViewer extends React.Component {
         this.setState((state, props) => ({index: ((state.index + 1) >= props.cards.length) ? 0 : state.index + 1}));
     }
 
+    onResize = () => {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        })
+    }
+
     render() {
+        let descriptionDiv = '';
         let confirmDiv = '';
         let textfield = '';
+        if(this.props.showDescription) {
+            descriptionDiv = (<div className="contentColumn"
+                style={{position: "absolute", left: "70%", right: "5%", top: "20%", bottom: "20%", alignItems: "flex-start"}}>
+                <h2 className="whiteText">
+                    {this.props.cards[this.state.index]?.title}
+                </h2>
+                <p className="whiteText">
+                    {this.props.cards[this.state.index]?.artist} ({this.props.cards[this.state.index]?.year})
+                </p>
+                <p className="whiteText">
+                    {this.props.localization.localize('card-viewer_license')}&nbsp;
+                    <a href={this.props.localization.localizeObject(this.props.cards[this.state.index]?.license.link)}
+                        className="light" target="_blank" rel="noreferrer">
+                        {this.props.localization.localizeObject(this.props.cards[this.state.index]?.license.name)}
+                    </a>
+                </p>
+            </div>)
+        }
         if(this.props.placeholder) {
             textfield = (
                 <div>
@@ -67,11 +99,10 @@ class CardViewer extends React.Component {
         }
         if(typeof(this.props.onConfirm) === 'function') confirmDiv = (
             <div className="contentColumn" onClick={(e) => {
-                    console.log("Event", e);
                     e.stopPropagation();
                 }}
                 style={{position: "absolute", left: "70%", right: "5%", top: "20%", bottom: "20%", alignItems: "flex-start"}}>
-                <h2 style={{color: "white", textShadow: "black 0px 0px 5px"}}>
+                <h2 className="whiteText">
                     {this.props.localization.localize('card-viewer_choose-this-card')}
                 </h2>
                 {textfield}
@@ -85,21 +116,20 @@ class CardViewer extends React.Component {
                 </div>
             </div>
         );
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
         return (
             <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6", zIndex: 200}}
                 onClick={() => this.onClose()}>
                 <PlayingCard
                     cardId={this.props.cards[this.state.index]?.id}
-                    x={(screenWidth - cardWidth) / 2}
-                    y={(screenHeight - cardHeight) / 2}
+                    x={(this.state.width - cardWidth) / 2}
+                    y={(this.state.height - cardHeight) / 2}
                     z={200}
-                    scale={(0.95 * screenHeight / cardHeight)}
+                    scale={(0.95 * this.state.height / cardHeight)}
                     angle={0}
                     flip={0}
                     onClick={() => this.onClose()}/>
                 {confirmDiv}
+                {descriptionDiv}
                 <img src={leftArrowImg} alt="Previous" className="clickable" onClick={(e) => this.prev(e)} 
                     style={{position: "absolute", left: "5%", top: "50%", transform: "translate(0, -50%)"}}/>
                 <img src={rightArrowImg} alt="Next" className="clickable" onClick={(e) => this.next(e)} 

@@ -39,6 +39,12 @@
     "finished-page_dream-team-column": "... Karte dieses Häschens.",
     "finished-page_dream-team-desc": "{0} und {1} haben insgesamt {2} mal auf die Karte des jeweils anderen getippt.",
     "finished-page_dream-team-desc-multi": "Folgende Paare haben insgesamt {2} mal auf die Karte des jeweils anderen getippt:",
+    "deck-gallery-page_header": "Kartensets",
+    "deck-gallery-page_name": "Name",
+    "deck-gallery-page_artist": "Künstler",
+    "deck-gallery-page_cards": "Anzahl Karten",
+    "deck-gallery-page_description": "Beschreibung",
+    "card-gallery-page_header": "Galerie",
     "nav-bar_language": "Sprache",
     "nav-bar_create-new-game": "Neues Spiel erstellen",
     "nav-bar_card-gallery": "Karten-Galerie",
@@ -53,6 +59,7 @@
     "game-settings_missing-cards": "Dir fehlen noch {0} Karten, um das Spiel zu starten.",
     "game-settings_enough-cards": "Du hast genug Karten, um das Spiel zu starten",
     "card-viewer_choose-this-card": "Diese Karte auswählen?",
+    "card-viewer_license": "Lizenz:",
     "player-bar_players": "Spieler",
     "server-error_timeout": "Server-Fehler: Timeout"
 }

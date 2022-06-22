@@ -39,6 +39,12 @@
     "finished-page_dream-team-column": "... this player's card.",
     "finished-page_dream-team-desc": "{0} and {1} have guessed each other's cards a total of {2} times.",
     "finished-page_dream-team-desc-multi": "The following pairs have guessed each other's cards a total of {2} times:",
+    "deck-gallery-page_header": "Card Sets",
+    "deck-gallery-page_name": "Name",
+    "deck-gallery-page_artist": "Artist",
+    "deck-gallery-page_cards": "Number of cards",
+    "deck-gallery-page_description": "Description",
+    "card-gallery-page_header": "Gallery",
     "nav-bar_language": "Language",
     "nav-bar_create-new-game": "Create new game",
     "nav-bar_card-gallery": "Card gallery",
@@ -53,6 +59,7 @@
     "game-settings_missing-cards": "You are missing {0} cards to be able to start the game.",
     "game-settings_enough-cards": "You have enough cards to start the game.",
     "card-viewer_choose-this-card": "Choose this card?",
+    "card-viewer_license": "License:",
     "player-bar_players": "Players",
     "server-error_timeout": "Server error: Timeout"
 }

@@ -57,7 +57,6 @@ class MainGamePage extends React.Component {
         this.props.socket.emit('gethint', this.credentials);
 
         this.props.socket.on('gameinforesponse', (data) => {
-            console.log(data);
             if(!data.success) return;
             this.setState({totalTurns: data.totalTurns});
         });
@@ -70,7 +69,6 @@ class MainGamePage extends React.Component {
             this.setState({handCards: data.cards});
         });
         this.props.socket.on('chosencardresponse', (data) => {
-            console.log(data, this.state.runningState);
             if(!data.success) return;
             this.setState((state) => {
                 if(state.runningState.activePlayer) {
@@ -137,7 +135,6 @@ class MainGamePage extends React.Component {
 
     /* for testing purposes
     drawCard = () => {
-        console.log('Test');
         this.setState((state) => {
             state.handCards.push({id: "629ca6aeda15aa531367bd36"});
             return {handCards: state.handCards};

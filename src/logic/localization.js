@@ -44,6 +44,10 @@ class Localization {
         return message;
     }
 
+    localizeObject(object) {
+        return object[this.language] ?? object['en'];
+    }
+
 }
 
 export default Localization

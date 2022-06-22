@@ -12,7 +12,6 @@ class JoinRoomPage extends React.Component {
 
     componentDidMount() {
         this.props.socket.on('joinresponse', (data) => {
-            console.log('Hi!', data);
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);

@@ -11,7 +11,6 @@ const cardHeight = gameDimensions.cardHeight;
 class CardHand extends React.Component {
 
     onHover = (index) => {
-        console.log('onHover', index);
         if(typeof(this.props.onHover) === 'function') this.props.onHover(index);
     }
 
@@ -48,6 +47,7 @@ class CardHand extends React.Component {
                     angle={0}
                     scale={element.selected ? 1.5 * scale : (element.correct ? 1.1 * scale : scale)}
                     flip={0}
+                    centered={true}
                     onHover={() => this.onHover(i)}
                     onLeave={() => this.onLeave(i)}
                     onClick={() => this.onClick(i)}

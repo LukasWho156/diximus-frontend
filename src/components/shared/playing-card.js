@@ -8,7 +8,6 @@ import "../../assets/css/playing-card.css";
 class PlayingCard extends React.Component {
 
     onHover = () => {
-        console.log('hovered');
         if(typeof(this.props.onHover) === 'function') this.props.onHover();
     }
 

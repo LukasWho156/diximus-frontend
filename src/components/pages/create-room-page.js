@@ -17,7 +17,6 @@ class CreateRoomPageComponent extends React.Component {
     componentDidMount() {
         this.maxPlayers = 4;
         this.props.socket.on('joinresponse', (data) => {
-            console.log('Joinresponse', data);
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);
@@ -26,7 +25,6 @@ class CreateRoomPageComponent extends React.Component {
     }
 
     render() {
-        console.log(this.props.forceRerender);
         return (
             <NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
                 <h1>Diximus</h1>
@@ -55,7 +53,6 @@ class CreateRoomPageComponent extends React.Component {
         if(!this.playerData) return;
         if(!this.playerData.name) return;
         axios.post(`${serverUrl}/game/create/`, {maxPlayers: this.maxPlayers}).then(res => {
-            console.log(res);
             this.props.socket.emit('join', {
                 gameId: res.data.id,
                 player: this.playerData,

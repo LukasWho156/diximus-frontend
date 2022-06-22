@@ -28,3 +28,16 @@ p {
     font-family: 'Fredericka the Great', sans-serif;
     font-size: 2em;
 }
+
+.whiteText {
+    color: white;
+    text-shadow: black 0px 0px 5px;
+}
+
+a.light {
+    color: orange;
+}
+
+a.light:hover {
+    color: orangered;
+}

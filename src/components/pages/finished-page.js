@@ -25,7 +25,6 @@ class FinishedPage extends React.Component {
         this.props.socket.emit('getplayers', this.credentials);
         this.props.socket.on('playerresponse', (data) => {
             if(!data.success) return;
-            console.log(data.players);
             const playerIds = data.players.map(player => player.id);
             const guessBoard = data.players.map(player => ({
                 heading: <div className="tooltipContainer">

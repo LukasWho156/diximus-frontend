@@ -23,7 +23,6 @@ class GamePageComponent extends React.Component {
 
     componentDidMount() {
         axios.get(`${serverUrl}/game/state/${this.props.params.id}`).then(res => {
-            console.log(res.data);
             switch(res.data.state) {
                 case 'invalid':
                     this.setState({gameState: 'doesNotExist'});
@@ -42,7 +41,6 @@ class GamePageComponent extends React.Component {
             }
         });
         this.props.socket.on('reconnectresponse', (data) => {
-            console.log('Reconnected', data);
             if(!data.success) {
                 this.setState({ gameState: (this.gameRunning) ? 'locked' : 'joining' })
                 return;
@@ -56,7 +54,6 @@ class GamePageComponent extends React.Component {
             this.setState({ gameState: 'finished' });
         });
         this.props.socket.on('gamerestarted', (data) => {
-            console.log('Restarted!');
             this.setState({ gameState: 'lobby' });
         });
         this.props.socket.on('disconnect', (data) => {
