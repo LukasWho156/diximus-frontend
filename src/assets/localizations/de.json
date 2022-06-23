@@ -61,5 +61,7 @@
     "card-viewer_choose-this-card": "Diese Karte auswählen?",
     "card-viewer_license": "Lizenz:",
     "player-bar_players": "Spieler",
-    "server-error_timeout": "Server-Fehler: Timeout"
+    "server-error_timeout": "Server-Fehler: Timeout",
+    "server-error_join-failed": "Server-Fehler: Konnte dem Spiel nicht beitreten. Möglicherweise ist es voll.",
+    "error-message_missing-name": "Bitte gebe deinen Namen ein."
 }

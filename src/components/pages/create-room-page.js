@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import Button from "react-bootstrap/Button";
+import { Alert, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 import AvatarCustomization from "../shared/avatar-customization";
@@ -12,16 +12,27 @@ import '../../assets/css/layouts.css';
 class CreateRoomPageComponent extends React.Component {
 
     playerData;
-    maxPlayers;
+
+    constructor(props) {
+        super(props);
+        this.state = { alert: null };
+    }
 
     componentDidMount() {
-        this.maxPlayers = 4;
         this.props.socket.on('joinresponse', (data) => {
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);
             this.props.navigate(data.gameId);
-        })
+        });
+    }
+
+    alert = (alert) => {
+        this.setState({alert: alert});
+    }
+
+    dismissAlert = () => {
+        this.setState({alert: null});
     }
 
     render() {
@@ -37,6 +48,11 @@ class CreateRoomPageComponent extends React.Component {
                 <Button onClick={event => this.onCreateGame()} variant="primary" type="submit">
                     {this.props.localization.localize('create-room-page_create-new-game')}
                 </Button>
+                <div style={{position: "absolute", bottom: "5%", left: "20%", right: "20%"}}>
+                    <Alert variant={this.state.alert?.type} onClose={() => this.dismissAlert()} show={this.state.alert} dismissible>
+                        {this.state.alert?.message}
+                    </Alert>
+                </div>
             </NavBarPage>
         );
     }
@@ -45,14 +61,12 @@ class CreateRoomPageComponent extends React.Component {
         this.playerData = playerData;
     }
 
-    onMaxPlayersUpdated = (event) => {
-        this.maxPlayers = event.target.value;
-    }
-
     onCreateGame = () => {
-        if(!this.playerData) return;
-        if(!this.playerData.name) return;
-        axios.post(`${serverUrl}/game/create/`, {maxPlayers: this.maxPlayers}).then(res => {
+        if(!this.playerData?.name) {
+            this.alert({type: 'danger', message: this.props.localization.localize('error-message_missing-name')});
+            return;
+        }
+        axios.post(`${serverUrl}/game/create/`).then(res => {
             this.props.socket.emit('join', {
                 gameId: res.data.id,
                 player: this.playerData,

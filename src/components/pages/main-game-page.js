@@ -50,11 +50,11 @@ class MainGamePage extends React.Component {
         window.addEventListener('resize', () => this.resize());
 
         this.props.socket.emit('getgameinfo', this.credentials);
-        this.props.socket.emit('getplayers', this.credentials);
-        this.props.socket.emit('getrunningstate', this.credentials)
-        this.props.socket.emit('gethandcards', this.credentials);
-        this.props.socket.emit('getchosencards', this.credentials);
-        this.props.socket.emit('gethint', this.credentials);
+        //this.props.socket.emit('getplayers', this.credentials);
+        //this.props.socket.emit('getrunningstate', this.credentials)
+        //this.props.socket.emit('gethandcards', this.credentials);
+        //this.props.socket.emit('getchosencards', this.credentials);
+        //this.props.socket.emit('gethint', this.credentials);
 
         this.props.socket.on('gameinforesponse', (data) => {
             if(!data.success) return;
