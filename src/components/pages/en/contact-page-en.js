@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../assets/css/layouts.css";
+import "../../../assets/css/layouts.css";
 
 class ContactPageEn extends React.Component {
 
@@ -29,7 +29,6 @@ class ContactPageEn extends React.Component {
                         https://soundcloud.com/lukas-who-892512337
                     </a>
                 </p>
-                <div className="copyrightInfo">Copyright © 2022 Gute LuThe Games</div>
         </div>)
     }
 }

@@ -7,6 +7,7 @@ import { io } from "socket.io-client";
 import CreateRoomPage from './components/pages/create-room-page';
 import GamePage from './components/pages/game-page';
 import ContactPage from './components/pages/contact-page';
+import AboutPage from './components/pages/about-page';
 import DeckGalleryPage from './components/pages/deck-gallery-page';
 import CardGalleryPage from './components/pages/card-gallery-page';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
             <Route path="/" element={<CreateRoomPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
             <Route path="/gallery" element={<DeckGalleryPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
             <Route path="/gallery/:id" element={<CardGalleryPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
+            <Route path="/about" element={<AboutPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
             <Route path="/contact" element={<ContactPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
             <Route path="/:id" element={<GamePage localization={localization} socket={socket} forceRerender={() => this.forceRerender()} />} />
           </Routes>

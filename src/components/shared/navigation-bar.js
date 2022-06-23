@@ -18,7 +18,7 @@ class NavigationBar extends React.Component {
             <div>
                 <Link to="/">{this.props.localization.localize('nav-bar_create-new-game')}</Link> |&nbsp;
                 <Link to="/gallery">{this.props.localization.localize('nav-bar_card-gallery')}</Link> |&nbsp;
-                <Link to="/">{this.props.localization.localize('nav-bar_about-diximus')}</Link> |&nbsp;
+                <Link to="/about">{this.props.localization.localize('nav-bar_about-diximus')}</Link> |&nbsp;
                 <Link to="/contact">{this.props.localization.localize('nav-bar_contact')}</Link>
             </div>
             <DropdownButton id="dropdown-basic-button" variant="info" onSelect={(key) => this.changeLanguage(key)}

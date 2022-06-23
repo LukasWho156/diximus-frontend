@@ -24,6 +24,10 @@ p {
     font-size: 1.2em;
 }
 
+p.poem {
+    font-style: italic;
+}
+
 .diximus {
     font-family: 'Fredericka the Great', sans-serif;
     font-size: 2em;
