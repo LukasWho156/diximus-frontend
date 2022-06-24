@@ -101,7 +101,7 @@ class CardViewerAlt extends React.Component {
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '100%'}}>
                     <img src={leftArrowImg} alt="Previous" className="clickable" onClick={(e) => this.prev(e)}/>
                     <img src={`${serverUrl}/card/${this.props.cards[this.state.index]?.id}`} alt="Card" onClick={() => this.onClose()}
-                        style={{maxHeight: '90vh', maxWidth: '80vw', flexShrink: 1, borderRadius: '5%'}}/>
+                        style={{maxHeight: '90vh', maxWidth: '80vw', flexShrink: 1, borderRadius: '5%'}} className="dropShadow"/>
                     <img src={rightArrowImg} alt="Next" className="clickable" onClick={(e) => this.next(e)}/>
                 </div>
                 {confirmDiv}

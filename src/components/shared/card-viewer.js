@@ -16,7 +16,8 @@ const cardWidth = gameDimensions.cardWidth;
 const cardHeight = gameDimensions.cardHeight;
 
 const defaultCutoffRatio = cardWidth / cardHeight * 1.2;
-const descriptionCutoffRatio = (cardWidth * 5) / (cardHeight * 2);
+const descriptionCutoffRatio = (cardWidth * 5) / (cardHeight * 2.6);
+const centerCutoffRatio = (cardWidth * 5) / (cardHeight * 1.8);
 
 class CardViewer extends React.Component {
 
@@ -125,15 +126,23 @@ class CardViewer extends React.Component {
                 </div>
             </div>
         );
+        let x = (this.state.width - cardWidth) / 2;
+        const ratio = this.state.width / this.state.height;
+        const fullWayPart = (ratio - centerCutoffRatio) / (descriptionCutoffRatio - centerCutoffRatio);
+        const scale = (0.95 * this.state.height / cardHeight)
+        if((this.props.showDescription || this.props.onConfirm) && ratio < centerCutoffRatio) {
+            console.log('Full way:', fullWayPart);
+            x = (this.state.width - cardWidth) / 2 - cardWidth * 0.3 * fullWayPart * scale;
+        }
         return (
             <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6", zIndex: 200}}
                 onClick={() => this.onClose()}>
                 <PlayingCard
                     cardId={this.props.cards[this.state.index]?.id}
-                    x={(this.state.width - cardWidth) / 2}
+                    x={x}
                     y={(this.state.height - cardHeight) / 2}
                     z={200}
-                    scale={(0.95 * this.state.height / cardHeight)}
+                    scale={scale}
                     angle={0}
                     flip={0}
                     onClick={() => this.onClose()}/>
