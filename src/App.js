@@ -32,7 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div style={{width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <Routes>
             <Route path="/" element={<CreateRoomPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />
             <Route path="/gallery" element={<DeckGalleryPage localization={localization} socket={socket} forceRerender={() => this.forceRerender()}/>} />

@@ -102,7 +102,8 @@ class MainGamePage extends React.Component {
     }
 
     resize = () => {
-        this.setState({scale: Math.min(window.innerWidth / width, window.innerHeight / height)});
+        const body = document.querySelector('body');
+        this.setState({scale: Math.min(body.clientWidth / width, body.clientHeight / height)});
     }
 
     highlightHandCard = (index) => {
@@ -191,6 +192,14 @@ class MainGamePage extends React.Component {
 
     nextTurn = () => {
         this.props.socket.emit('nextturn', this.credentials);
+    }
+
+    enterFullscreen = () => {
+        if(document.fullscreenElement) {
+            document.exitFullscreen();
+            return;
+        }
+        document.querySelector('body').requestFullscreen();
     }
 
     render() {
@@ -329,6 +338,9 @@ class MainGamePage extends React.Component {
                     </Motion>
                 </div>
                 <PlayerBar localization={this.props.localization} players={this.state.players}/>
+                <Button variant="primary" className="bottomRightButton dropShadow" onClick={() => this.enterFullscreen()}>
+                    {this.props.localization.localize('main-game-page_fullscreen')}
+                </Button>
                 {viewer}
             </div>
         )

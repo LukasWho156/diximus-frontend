@@ -11,3 +11,9 @@
     right: 2.5%;
     top: 5%;
 }
+
+.bottomRightButton {
+    position: absolute;
+    right: 2.5%;
+    bottom: 5%;
+}

@@ -59,7 +59,8 @@ class CardGalleryPageComponent extends React.Component {
     }
 
     render() {
-        return(<NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
+        return(<NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}
+            disableScrolling={!!this.state.viewedCard}>
             <h1>{this.props.localization.localize('card-gallery-page_header')}</h1>
             <h2>{this.state.title}</h2>
             <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2em', width: '90%'}}>
