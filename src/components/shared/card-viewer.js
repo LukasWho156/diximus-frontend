@@ -56,12 +56,12 @@ class CardViewer extends React.Component {
     }
 
     prev = (e) => {
-        e.stopPropagation();
+        if(e) e.stopPropagation();
         this.setState((state, props) => ({index: ((state.index - 1) < 0) ? props.cards.length - 1 : state.index - 1}));
     }
 
     next = (e) => {
-        e.stopPropagation();
+        if(e) e.stopPropagation();
         this.setState((state, props) => ({index: ((state.index + 1) >= props.cards.length) ? 0 : state.index + 1}));
     }
 
@@ -145,7 +145,9 @@ class CardViewer extends React.Component {
                     scale={scale}
                     angle={0}
                     flip={0}
-                    onClick={() => this.onClose()}/>
+                    onClick={() => this.onClose()}
+                    onSwipeLeft={() => this.next()}
+                    onSwipeRight={() => this.prev()}/>
                 {confirmDiv}
                 {descriptionDiv}
                 <img src={leftArrowImg} alt="Previous" className="clickable" onClick={(e) => this.prev(e)} 

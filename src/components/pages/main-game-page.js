@@ -199,7 +199,9 @@ class MainGamePage extends React.Component {
             document.exitFullscreen();
             return;
         }
-        document.querySelector('body').requestFullscreen();
+        const body = document.querySelector('body');
+        if(body.requestFullscreen) body.requestFullscreen();
+        if(body.webkitRequestFullscreen) body.webkitRequestFullscreen();
     }
 
     render() {

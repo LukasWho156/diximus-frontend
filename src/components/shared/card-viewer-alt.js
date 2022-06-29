@@ -7,6 +7,7 @@ import leftArrowImg from '../../assets/images/left_arrow.png';
 import rightArrowImg from '../../assets/images/right_arrow.png';
 
 import "../../assets/css/layouts.css"
+import SwipeArea from "./swipe-area";
 
 class CardViewerAlt extends React.Component {
 
@@ -37,12 +38,12 @@ class CardViewerAlt extends React.Component {
     }
 
     prev = (e) => {
-        e.stopPropagation();
+        if(e) e.stopPropagation();
         this.setState((state, props) => ({index: ((state.index - 1) < 0) ? props.cards.length - 1 : state.index - 1}));
     }
 
     next = (e) => {
-        e.stopPropagation();
+        if(e) e.stopPropagation();
         this.setState((state, props) => ({index: ((state.index + 1) >= props.cards.length) ? 0 : state.index + 1}));
     }
 
@@ -100,8 +101,12 @@ class CardViewerAlt extends React.Component {
                 onClick={() => this.onClose()} className="contentColumn">
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: '100%'}}>
                     <img src={leftArrowImg} alt="Previous" className="clickable" onClick={(e) => this.prev(e)}/>
-                    <img src={`${serverUrl}/card/${this.props.cards[this.state.index]?.id}`} alt="Card" onClick={() => this.onClose()}
-                        style={{maxHeight: '90vh', maxWidth: '80vw', flexShrink: 1, borderRadius: '5%'}} className="dropShadow"/>
+                    <div>
+                        <SwipeArea onSwipeLeft={() => this.next()} onSwipeRight={() => this.prev()}>
+                            <img src={`${serverUrl}/card/${this.props.cards[this.state.index]?.id}`} alt="Card" onClick={() => this.onClose()}
+                                style={{maxHeight: '90vh', maxWidth: '80vw', flexShrink: 1, borderRadius: '5%'}} className="dropShadow"/>
+                        </SwipeArea>
+                    </div>
                     <img src={rightArrowImg} alt="Next" className="clickable" onClick={(e) => this.next(e)}/>
                 </div>
                 {confirmDiv}

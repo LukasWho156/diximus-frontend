@@ -43,7 +43,7 @@ class LobbyPage extends React.Component {
         axios.get(`${serverUrl}/sets`).then(res => {
             this.setState({availableSets: res.data});
         });
-        this.props.socket.on('playerjoined', (data) => {
+        this.props.socket.on('playerresponse', (data) => {
             this.setState(state => ({
                 players: data.players,
                 requiredNoCards: data.players.length * (5 + state.noRounds),
@@ -126,8 +126,13 @@ class LobbyPage extends React.Component {
         }, 3000);
     }
 
+    getPlayerInfo = (player) => {
+        if(player.disconnected) return 'disconnected';
+        return player.admin ? 'crown' : null
+    }
+
     render() {
-        const playerBoxes = this.state.players.map((player, i) => <PlayerBox player={player} key={i} info={player.admin ? 'crown' : null}/>)
+        const playerBoxes = this.state.players.map((player, i) => <PlayerBox player={player} key={i} info={this.getPlayerInfo(player)}/>)
         const me = this.state.players.find(e => e.id === this.credentials.playerId);
         const settings = me?.admin ? <GameSettings
             localization={this.props.localization}

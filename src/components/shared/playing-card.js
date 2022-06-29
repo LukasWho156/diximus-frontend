@@ -4,6 +4,7 @@ import {Motion, spring} from "react-motion";
 import { serverUrl } from "../../logic/server-url";
 
 import "../../assets/css/playing-card.css";
+import SwipeArea from "./swipe-area";
 
 class PlayingCard extends React.Component {
 
@@ -47,12 +48,14 @@ class PlayingCard extends React.Component {
                     onMouseEnter={() => this.onHover()}
                     onMouseLeave={() => this.onLeave()}
                     onClick={() => this.onClick()}>
-                    <div className="playingCardInner" style={{transform: `rotateY(${interpolate.flip * 180}deg)`}}>
-                        <div className="playingCardFront" style={cardStyle}>
-                            <img src={`${serverUrl}/card/${this.props.cardId}`} alt="Karte" className="playingCardImage" />
+                    <SwipeArea onSwipeLeft={this.props.onSwipeLeft} onSwipeRight={this.props.onSwipeRight}>
+                        <div className="playingCardInner" style={{transform: `rotateY(${interpolate.flip * 180}deg)`}}>
+                            <div className="playingCardFront" style={cardStyle}>
+                                <img src={`${serverUrl}/card/${this.props.cardId}`} alt="Karte" className="playingCardImage" />
+                            </div>
+                            <div className="playingCardBack" style={cardStyle}></div>
                         </div>
-                        <div className="playingCardBack" style={cardStyle}></div>
-                    </div>
+                    </SwipeArea>
                 </div>}
             </Motion>
         )
