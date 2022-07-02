@@ -6,6 +6,25 @@ import { serverUrl } from "../../logic/server-url";
 import "../../assets/css/playing-card.css";
 import SwipeArea from "./swipe-area";
 
+/**
+ * An animatable representaion of a playing card that can be interacted with. Animation is
+ * automatically done by React Motion whenever the card's position / scale parameters are changed.
+ * 
+ * @property {number} x the x coordinate of the card's top left corner, relative to the container
+ * @property {number} y the y coordinate of the card's top left corner, relative to the container
+ * @property {number} scale the relative scale of the card. 1 corresponds to a width of 1220 pixels
+ * and a height of 820 pixels.
+ * @property {number} angle the angle along the card's z axis
+ * @property {number} flip 1 if the card's backside should be visible, 0 if the frontside should be
+ * visible
+ * @property {function} onHover function that is called when the card is hovered
+ * @property {function} onLeave function that is called when the card is not hovered anymore
+ * @property {funciton} onClick function that is called when the card is clicked
+ * @property {function} onSwipeLeft function that is called when the card is swiped to the left
+ * @property {funciton} onSwipeRight function that is called when the card is swiped to the right
+ * 
+ * @memberof components.shared
+ */
 class PlayingCard extends React.Component {
 
     onHover = () => {

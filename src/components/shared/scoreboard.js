@@ -6,6 +6,16 @@ import "../../assets/css/layouts.css";
 
 const infos = ['first', 'second', 'third']
 
+/**
+ * A component that displays the results of the game in a tabular fashion.
+ * 
+ * @property {string} description A short message describing what the scores mean. Displayed above
+ * the table.
+ * @property {Player[]} players The players that should be evaluated
+ * @property {string} field Which field of the player's score should be evaluated
+ * 
+ * @memberof components.shared
+ */
 class Scoreboard extends React.Component {
 
     render() {

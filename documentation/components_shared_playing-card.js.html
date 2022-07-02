@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/shared/playing-card.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AboutPage.html">AboutPage</a></li><li><a href="components.shared.PlayingCard.html">components.shared.PlayingCard</a></li><li><a href="components.shared.Scoreboard.html">components.shared.Scoreboard</a></li><li><a href="components.shared.SwipeArea.html">components.shared.SwipeArea</a></li><li><a href="logic.Localization.html">logic.Localization</a><ul class='methods'><li data-type='method' style='display: none;'><a href="logic.Localization.html#localize">localize</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#localizeObject">localizeObject</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#setLanguage">setLanguage</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="components.html">components</a></li><li><a href="components.pages.html">components.pages</a></li><li><a href="components.shared.html">components.shared</a></li><li><a href="logic.html">logic</a><ul class='members'><li data-type='member' style='display: none;'><a href="logic.html#.frontendUrl">frontendUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.gameDimensions">gameDimensions</a></li><li data-type='member' style='display: none;'><a href="logic.html#.serverUrl">serverUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.version">version</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Player">Player</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/shared/playing-card.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import {Motion, spring} from "react-motion";
+
+import { serverUrl } from "../../logic/server-url";
+
+import "../../assets/css/playing-card.css";
+import SwipeArea from "./swipe-area";
+
+/**
+ * An animatable representaion of a playing card that can be interacted with. Animation is
+ * automatically done by React Motion whenever the card's position / scale parameters are changed.
+ * 
+ * @property {number} x the x coordinate of the card's top left corner, relative to the container
+ * @property {number} y the y coordinate of the card's top left corner, relative to the container
+ * @property {number} scale the relative scale of the card. 1 corresponds to a width of 1220 pixels
+ * and a height of 820 pixels.
+ * @property {number} angle the angle along the card's z axis
+ * @property {number} flip 1 if the card's backside should be visible, 0 if the frontside should be
+ * visible
+ * @property {function} onHover function that is called when the card is hovered
+ * @property {function} onLeave function that is called when the card is not hovered anymore
+ * @property {funciton} onClick function that is called when the card is clicked
+ * @property {function} onSwipeLeft function that is called when the card is swiped to the left
+ * @property {funciton} onSwipeRight function that is called when the card is swiped to the right
+ * 
+ * @memberof components.shared
+ */
+class PlayingCard extends React.Component {
+
+    onHover = () => {
+        if(typeof(this.props.onHover) === 'function') this.props.onHover();
+    }
+
+    onLeave = () => {
+        if(typeof(this.props.onLeave) === 'function') this.props.onLeave();
+    }
+
+    onClick = () => {
+        if(typeof(this.props.onClick) === 'function') this.props.onClick();
+    }
+
+    render() {
+        const cardStyle = {};
+        if(this.props.correctCard) cardStyle.boxShadow = "0px 0px 25px 25px rgba(0, 255, 0, 0.4)";
+        return (
+            &lt;Motion style={{
+                x: spring(this.props.x),
+                y: spring(this.props.y),
+                z: spring(this.props.z),
+                angle: spring(this.props.angle),
+                flip: spring(this.props.flip),
+                scale: spring(this.props.scale),
+            }} defaultStyle={{
+                x: this.props.x,
+                y: this.props.y,
+                z: this.props.z,
+                angle: 0,
+                flip: 1,
+                scale: 0,
+            }}>
+                {interpolate => &lt;div
+                    className="playingCardContainer"
+                    style={{transform: `translate(${interpolate.x}px, ${interpolate.y}px) ` +
+                                        `rotate(${interpolate.angle}deg)` +
+                                        `scale(${interpolate.scale})`,
+                            zIndex: Math.floor(interpolate.z)}}
+                    onMouseEnter={() => this.onHover()}
+                    onMouseLeave={() => this.onLeave()}
+                    onClick={() => this.onClick()}>
+                    &lt;SwipeArea onSwipeLeft={this.props.onSwipeLeft} onSwipeRight={this.props.onSwipeRight}>
+                        &lt;div className="playingCardInner" style={{transform: `rotateY(${interpolate.flip * 180}deg)`}}>
+                            &lt;div className="playingCardFront" style={cardStyle}>
+                                &lt;img src={`${serverUrl}/card/${this.props.cardId}`} alt="Karte" className="playingCardImage" />
+                            &lt;/div>
+                            &lt;div className="playingCardBack" style={cardStyle}>&lt;/div>
+                        &lt;/div>
+                    &lt;/SwipeArea>
+                &lt;/div>}
+            &lt;/Motion>
+        )
+    }
+
+}
+
+export default PlayingCard;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sat Jul 02 2022 21:05:19 GMT+0200 (Mitteleuropäische Sommerzeit) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

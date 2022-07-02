@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>logic - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AboutPage.html">AboutPage</a></li><li><a href="components.shared.PlayingCard.html">components.shared.PlayingCard</a></li><li><a href="components.shared.Scoreboard.html">components.shared.Scoreboard</a></li><li><a href="components.shared.SwipeArea.html">components.shared.SwipeArea</a></li><li><a href="logic.Localization.html">logic.Localization</a><ul class='methods'><li data-type='method' style='display: none;'><a href="logic.Localization.html#localize">localize</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#localizeObject">localizeObject</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#setLanguage">setLanguage</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="components.html">components</a></li><li><a href="components.pages.html">components.pages</a></li><li><a href="components.shared.html">components.shared</a></li><li><a href="logic.html">logic</a><ul class='members'><li data-type='member' style='display: none;'><a href="logic.html#.frontendUrl">frontendUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.gameDimensions">gameDimensions</a></li><li data-type='member' style='display: none;'><a href="logic.html#.serverUrl">serverUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.version">version</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Player">Player</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">logic</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        logic
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+            
+                <div class="description usertext"><p>Shared logic between components</p></div>
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="logic.Localization.html">Localization</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".frontendUrl"><span class="type-signature">(static, constant) </span>frontendUrl<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="logic_server-url.js.html">logic/server-url.js</a>, <a href="logic_server-url.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The base URL where the frontend can be found, used to display the link to the game. Should
+be saved in an environment variable called <code>REACT_APP_FRONTEND_URL</code>. Defaults to
+<code>'http://localhost:8000'</code></p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".gameDimensions"><span class="type-signature">(static, constant) </span>gameDimensions<span class="type-signature"></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="logic_game-dimensions.js.html">logic/game-dimensions.js</a>, <a href="logic_game-dimensions.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gameDimensions.screenWidth</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The normed width of the viewport. Identical to the table width.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gameDimensions.screenheight</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The normed height of the viewport.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gameDimensions.tableHeight</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The normed height of the playing table.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gameDimensions.cardWidth</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The normed width of a playing card.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gameDimensions.cardheight</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The normed height of a playing card.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<div class="description usertext">
+    <p>Normed game dimensions in pixels, used by some components to do calculations.</p>
+</div>
+
+
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".serverUrl"><span class="type-signature">(static, constant) </span>serverUrl<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="logic_server-url.js.html">logic/server-url.js</a>, <a href="logic_server-url.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The URL where http requests should be sent to. Should be saved in an envrionment variable
+called <code>REACT_APP_SERVER_URL</code>. Defaults to <code>'http://localhost:3000/api'</code></p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".version"><span class="type-signature">(static, constant) </span>version<span class="type-signature"> :string</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="logic_server-url.js.html">logic/server-url.js</a>, <a href="logic_server-url.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The version number displayed on the about page.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sat Jul 02 2022 21:05:19 GMT+0200 (Mitteleuropäische Sommerzeit) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

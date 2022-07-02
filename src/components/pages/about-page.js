@@ -4,6 +4,9 @@ import NavBarPage from "../shared/nav-bar-page";
 import AboutPageDe from "./de/about-page-de";
 import AboutPageEn from "./en/about-page-en";
 
+/**
+ * A Test Component
+ */
 class AboutPage extends React.Component {
 
     renderInner() {

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>index.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AboutPage.html">AboutPage</a></li><li><a href="components.shared.PlayingCard.html">components.shared.PlayingCard</a></li><li><a href="components.shared.Scoreboard.html">components.shared.Scoreboard</a></li><li><a href="components.shared.SwipeArea.html">components.shared.SwipeArea</a></li><li><a href="logic.Localization.html">logic.Localization</a><ul class='methods'><li data-type='method' style='display: none;'><a href="logic.Localization.html#localize">localize</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#localizeObject">localizeObject</a></li><li data-type='method' style='display: none;'><a href="logic.Localization.html#setLanguage">setLanguage</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="components.html">components</a></li><li><a href="components.pages.html">components.pages</a></li><li><a href="components.shared.html">components.shared</a></li><li><a href="logic.html">logic</a><ul class='members'><li data-type='member' style='display: none;'><a href="logic.html#.frontendUrl">frontendUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.gameDimensions">gameDimensions</a></li><li data-type='member' style='display: none;'><a href="logic.html#.serverUrl">serverUrl</a></li><li data-type='member' style='display: none;'><a href="logic.html#.version">version</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#Player">Player</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Shared logic between components
+ * 
+ * @namespace logic
+ */
+
+/**
+ * Components used by this app
+ * 
+ * @namespace components
+ */
+
+/**
+ * Components that are full pages
+ * 
+ * @namespace components.pages
+ */
+
+/**
+ * Components that are shared between different pages
+ * 
+ * @namespace components.shared
+ */
+
+/**
+ * An object containing player information
+ * @typedef Player
+ * @property {string} name the player's nickname
+ * @property {string} id the player's id
+ * @property {object} avatar contains configuration information about the player's avatar
+ * @property {number} avatar.eyes the index of the player's eyes
+ * @property {number} avatar.hair the index of the player's hair
+ * @property {number} avatar.accessory the index of the player's accessory
+ * @property {number} avatar.color the index of the player's color
+ * @property {object} score contains information about the player's score
+ * @property {number} score.total total score
+ * @property {number} score.thisTurn the amount of points awarded to the player this turn
+ * @property {number} score.throughGoodCards the amount of points awarded to the player because other people guessed their cards
+ * @property {number} score.throughGoodHints the amount of points awarded to the player because they described their card "well"
+ * @property {number} score.throughGoodGuesses the amount of points awarded to the player because they guessed the correct card
+ * @property {boolean} admin true if the player started the game
+ * @property {boolean} active true if the player is currently the round leader
+ * @property {boolean} pending true if the player is currently expected to do something
+ * @property {boolean} disconnected true if the websocket connection disconnected
+ */
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/main.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  &lt;React.StrictMode>
+    &lt;App />
+  &lt;/React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Sat Jul 02 2022 21:05:19 GMT+0200 (Mitteleuropäische Sommerzeit) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
