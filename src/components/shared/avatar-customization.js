@@ -62,9 +62,9 @@ class AvatarCustomization extends React.Component {
         const playerData = {
             name: this.userName,
             avatar: {
-                eyes: this.state.currentIndices[0],
+                eyes: this.state.currentIndices[2],
                 hair: this.state.currentIndices[1],
-                accessory: this.state.currentIndices[2],
+                accessory: this.state.currentIndices[0],
             }
         }
         if(typeof(this.props.onDataUpdated) === 'function') {
@@ -90,7 +90,7 @@ class AvatarCustomization extends React.Component {
                 </Form.Control>
                 <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: "5vw"}}>
                     <ArrowColumn direction="left" size={3} onClick={(i) => this.decrease(i)} />
-                    <Avatar eyes={this.getValue(0)} hair={this.getValue(1)} accessory={this.getValue(2)} color={0} />
+                    <Avatar eyes={this.getValue(2)} hair={this.getValue(1)} accessory={this.getValue(0)} color={0} />
                     <ArrowColumn direction="right" size={3} onClick={(i) => this.increase(i)} />
                 </div>
                 <Button onClick={() => this.randomizeAll()} variant="secondary">

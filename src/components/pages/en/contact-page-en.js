@@ -29,6 +29,10 @@ class ContactPageEn extends React.Component {
                         https://soundcloud.com/lukas-who-892512337
                     </a>
                 </p>
+                <h2>Additional Credits</h2>
+                <p>Sound effects obtained from <a href="http://www.zapsplat.com" target="_blank" rel="noreferrer">
+                    https://www.zapsplat.com
+                </a></p>
         </div>)
     }
 }

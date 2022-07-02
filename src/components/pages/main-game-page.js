@@ -12,6 +12,8 @@ import "../../assets/css/clickable.css";
 import "../../assets/css/player-bar.css";
 import PlayerBar from "../shared/player-bar";
 
+import drip from "../../assets/sfx/drip.mp3";
+
 const width = gameDimensions.screenWidth;
 const height = gameDimensions.screenHeight;
 const tableHeight = gameDimensions.tableHeight;
@@ -21,6 +23,7 @@ const bottomFocusStates = ['init', 'waitForHint', 'waitForCards'];
 class MainGamePage extends React.Component {
 
     credentials;
+    messageSfx;
 
     constructor(props) {
         super(props);
@@ -47,14 +50,11 @@ class MainGamePage extends React.Component {
 
     componentDidMount() {
         this.resize();
-        window.addEventListener('resize', () => this.resize());
+        window.addEventListener('resize', this.resize);
+
+        this.messageSfx = new Audio(drip);
 
         this.props.socket.emit('getgameinfo', this.credentials);
-        //this.props.socket.emit('getplayers', this.credentials);
-        //this.props.socket.emit('getrunningstate', this.credentials)
-        //this.props.socket.emit('gethandcards', this.credentials);
-        //this.props.socket.emit('getchosencards', this.credentials);
-        //this.props.socket.emit('gethint', this.credentials);
 
         this.props.socket.on('gameinforesponse', (data) => {
             if(!data.success) return;
@@ -80,6 +80,7 @@ class MainGamePage extends React.Component {
             });
         });
         this.props.socket.on('runningstatechanged', (data) => {
+            this.messageSfx.play();
             if(data.state === 'waitForHint') this.props.socket.emit('gethandcards', this.credentials);
             this.setState((state) => {
                 const newState = {
@@ -99,6 +100,10 @@ class MainGamePage extends React.Component {
         this.props.socket.on('hintgiven', (data) => {
             this.setState({hint: data});
         })
+    }
+
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.resize);
     }
 
     resize = () => {
@@ -196,7 +201,8 @@ class MainGamePage extends React.Component {
 
     enterFullscreen = () => {
         if(document.fullscreenElement) {
-            document.exitFullscreen();
+            if(document.exitFullscreen) document.exitFullscreen();
+            if(document.webkitExitFullscreen) document.webkitExitFullscreen();
             return;
         }
         const body = document.querySelector('body');

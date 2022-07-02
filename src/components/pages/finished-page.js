@@ -43,7 +43,7 @@ class FinishedPage extends React.Component {
                         topTeams = [{player1: data.players[i].name, player2: data.players[j].name}];
                         topScore = teamScore
                     } else if(teamScore === topScore) {
-                        topTeams.push([{player1: data.players[i].name, player2: data.players[j].name}]);
+                        topTeams.push({player1: data.players[i].name, player2: data.players[j].name});
                     }
                 }
             }

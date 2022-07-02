@@ -39,7 +39,7 @@
     "finished-page_dream-team-row": "Hat getippt auf die ...",
     "finished-page_dream-team-column": "... Karte dieses Häschens.",
     "finished-page_dream-team-desc": "{0} und {1} haben insgesamt {2} mal auf die Karte des jeweils anderen getippt.",
-    "finished-page_dream-team-desc-multi": "Folgende Paare haben insgesamt {2} mal auf die Karte des jeweils anderen getippt:",
+    "finished-page_dream-team-desc-multi": "Folgende Paare haben insgesamt {0} mal auf die Karte des jeweils anderen getippt:",
     "deck-gallery-page_header": "Kartensets",
     "deck-gallery-page_name": "Name",
     "deck-gallery-page_artist": "Künstler",

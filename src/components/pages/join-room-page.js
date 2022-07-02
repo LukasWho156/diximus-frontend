@@ -43,7 +43,7 @@ class JoinRoomPage extends React.Component {
                 <AvatarCustomization
                     localization={this.props.localization}
                     onDataUpdated={(data) => this.onDataUpdated(data)}
-                    maxIndices={[7, 7, 9]}
+                    maxIndices={[9, 7, 7]}
                     onEnter={() => this.onJoinGame()}/>
                 <Button onClick={(event) => this.onJoinGame(event)} variant="primary">
                     {this.props.localization.localize('join-room-page_join-game')}

@@ -39,7 +39,7 @@
     "finished-page_dream-team-row": "Has guessed ...",
     "finished-page_dream-team-column": "... this player's card.",
     "finished-page_dream-team-desc": "{0} and {1} have guessed each other's cards a total of {2} times.",
-    "finished-page_dream-team-desc-multi": "The following pairs have guessed each other's cards a total of {2} times:",
+    "finished-page_dream-team-desc-multi": "The following pairs have guessed each other's cards a total of {0} times:",
     "deck-gallery-page_header": "Card Sets",
     "deck-gallery-page_name": "Name",
     "deck-gallery-page_artist": "Artist",

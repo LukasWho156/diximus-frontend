@@ -43,7 +43,7 @@ class CreateRoomPageComponent extends React.Component {
                 <AvatarCustomization
                     localization={this.props.localization}
                     onDataUpdated={(data) => this.onDataUpdated(data)}
-                    maxIndices={[7, 7, 9]}
+                    maxIndices={[9, 7, 7]}
                     onEnter={() => this.onCreateGame()}/>
                 <Button onClick={event => this.onCreateGame()} variant="primary" type="submit">
                     {this.props.localization.localize('create-room-page_create-new-game')}

@@ -143,7 +143,7 @@ class LobbyPage extends React.Component {
             : <h2>{this.props.localization.localize('lobby-page_wait-for-admin')}</h2>;
         return(
             <NavBarPage localization={this.props.localization} forceRerender={this.props.forceRerender}>
-                <Container style={{width: "70%", overflowY: "auto", overflowX: "hidden"}}>
+                <Container style={{width: "70%"}}>
                     <Row>
                         <Col>
                             <h1>{this.props.localization.localize('lobby-page_heading')}</h1>
