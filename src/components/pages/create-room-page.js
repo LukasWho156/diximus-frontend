@@ -23,6 +23,7 @@ class CreateRoomPageComponent extends React.Component {
             if(!data.success) return;
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);
+            window.localStorage.setItem('diximusPrivateId', data.privateId);
             this.props.navigate(data.gameId);
         });
     }

@@ -23,6 +23,7 @@ class JoinRoomPage extends React.Component {
             }
             window.localStorage.setItem('diximusGameId', data.gameId);
             window.localStorage.setItem('diximusPlayerId', data.playerId);
+            window.localStorage.setItem('diximusPrivateId', data.privateId);
             if(typeof(this.props.onSuccessfulJoin) === 'function') this.props.onSuccessfulJoin();
         });
     }

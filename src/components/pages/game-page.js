@@ -12,12 +12,18 @@ import FinishedPage from "./finished-page";
 class GamePageComponent extends React.Component {
 
     gameRunning;
+    credentials;
 
     constructor(props) {
         super(props);
         this.state = {
             gameState: 'pending',
             cards: [],
+        }
+        this.credentials = {
+            gameId: this.props.params.id,
+            playerId: window.localStorage.getItem('diximusPlayerId'),
+            privateId: window.localStorage.getItem('diximusPrivateId'),
         }
     }
 
@@ -28,10 +34,8 @@ class GamePageComponent extends React.Component {
                     this.setState({gameState: 'doesNotExist'});
                     break;
                 case 'open':
-                    this.evaluateLobby();
-                    break;
                 case 'running':
-                    this.evaluateRunning();
+                    this.evaluateReconnect();
                     break;
                 case 'finished':
                     this.setState({ gameState: 'finished' });
@@ -62,16 +66,9 @@ class GamePageComponent extends React.Component {
         setTimeout(() => this.stopLoading(), 3000);
     }
 
-    evaluateLobby() {
-        const playerId = window.localStorage.getItem('diximusPlayerId');
+    evaluateReconnect() {
         this.gameRunning = false;
-        this.props.socket.emit('reconnect', {gameId: this.props.params.id, playerId: playerId})
-    }
-
-    evaluateRunning() {
-        const playerId = window.localStorage.getItem('diximusPlayerId');
-        this.gameRunning = true;
-        this.props.socket.emit('reconnect', {gameId: this.props.params.id, playerId: playerId})
+        this.props.socket.emit('reconnect', this.credentials)
     }
 
     stopLoading() {

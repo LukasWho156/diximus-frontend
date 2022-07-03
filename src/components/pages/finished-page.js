@@ -17,7 +17,8 @@ class FinishedPage extends React.Component {
         this.state = { players: [], guessBoard: [], topTeams: [], topScore: 0, };
         this.credentials = {
             gameId: this.props.params.id,
-            playerId: window.localStorage.getItem('diximusPlayerId')
+            playerId: window.localStorage.getItem('diximusPlayerId'),
+            privateId: window.localStorage.getItem('diximusPrivateId'),
         }
     }
 

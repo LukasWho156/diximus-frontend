@@ -29,7 +29,8 @@ class LobbyPage extends React.Component {
         }
         this.credentials = {
             gameId: this.props.params.id,
-            playerId: window.localStorage.getItem('diximusPlayerId')
+            playerId: window.localStorage.getItem('diximusPlayerId'),
+            privateId: window.localStorage.getItem('diximusPrivateId'),
         }
     }
 

@@ -29,7 +29,8 @@ class MainGamePage extends React.Component {
         super(props);
         this.credentials = {
             gameId: this.props.params.id,
-            playerId: window.localStorage.getItem('diximusPlayerId')
+            playerId: window.localStorage.getItem('diximusPlayerId'),
+            privateId: window.localStorage.getItem('diximusPrivateId'),
         }
         this.state = {
             scale: 1,
@@ -333,7 +334,11 @@ class MainGamePage extends React.Component {
                                 onLeave={(i) => this.unhighlightChosenCard(i)}
                                 onClick={(i) => this.viewChosenCard(i)}
                                 addInfo={playerBoxes}
-                                addInfoWidth={256}/>
+                                addInfoWidth={256}
+                                cardOwners={this.state.chosenCards?.map(card => {
+                                    const name = this.state.players.find(e => e.id === card.owner)?.name;
+                                    return name ? this.props.localization.localize('main-game-page_card-owner', name) : null;
+                                })}/>
                             <CardHand cards={this.state.handCards}
                                 position="bottom"
                                 onHover={(i) => this.highlightHandCard(i)}

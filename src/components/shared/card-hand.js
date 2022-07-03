@@ -55,6 +55,22 @@ class CardHand extends React.Component {
             )
         });
         const infoScale = (cardWidth * scale) / this.props.addInfoWidth;
+        const cardOwners = this.props.cardOwners?.map((element, i) => {
+            return (<div key={i} style={{
+                position: "absolute",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 'bold',
+                left: (screenWidth - cardWidth * scale * 1.1) / 2 + (i - (this.props.cardOwners.length - 1) / 2) * (cardWidth * scale * 1.1),
+                width: (cardWidth * scale * 1.1),
+                top: 0.01 * tableHeight,
+                height: 0.03 * tableHeight,
+                transformOrigin: "top",
+                zIndex: 1}}>
+                    {element}
+            </div>)
+        })
         const addInfo = this.props.addInfo?.map((element, i) => {
             return (<div key={i} style={{
                 position: "absolute",
@@ -72,6 +88,7 @@ class CardHand extends React.Component {
         return(
             <div style={{position: "absolute", width: "100%", height: "100%"}}>
                 {cards}
+                {cardOwners}
                 {addInfo}
             </div>
         )
